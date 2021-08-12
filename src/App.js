@@ -9,7 +9,7 @@ function App() {
   const [messages, setMessages] = useState([]);
 
   const addMessage = useCallback((message) => {
-    setMessages((m) => m.concat(`${message}\n`));
+    setMessages((m) => (`${message}\n`).concat(m));
   }, []);
 
   const onCrosswordComplete = useCallback(
