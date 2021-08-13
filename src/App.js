@@ -14,14 +14,15 @@ function App() {
 
   const onCrosswordComplete = useCallback(
     (isComplete) => {
-      addMessage(`onCrosswordComplete: ${JSON.stringify(isComplete)}`);
+      addMessage(`onCrosswordComplete: ${JSON.stringify(isComplete)} ${isComplete ? ' CHECK IT ' : ''}`);
     },
     [addMessage]
   );
 
   const onCellChange = useCallback(
     (row, col, char) => {
-      addMessage(`onCellChange: "${row}", "${col}", "${char}"`);
+      const isComplete = crossword.current.isCrosswordComplete();
+      addMessage(`onCellChange: "${row}", "${col}", "${char}" ${isComplete ? ' CHECK IT' : ''}`);
     },
     [addMessage]
   );
