@@ -1,7 +1,7 @@
 import './App.css';
 import { data } from './data';
 import React, { useCallback, useRef, useState } from 'react';
-import Crossword from '@jaredreisinger/react-crossword';
+import Crossword from 'react-crossword';
 
 function App() {
   const crossword = useRef();
