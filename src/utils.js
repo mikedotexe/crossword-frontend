@@ -62,7 +62,7 @@ function parseSolutionSeedPhrase(data, gridData) {
     }
   }
   const finalSeedPhrase = seedPhrase.map(w => w.toLowerCase()).join(' ');
-  console.log('finalSeedPhrase', finalSeedPhrase);
+  console.log(`Crossword solution as seed phrase: %c${finalSeedPhrase}`, "color: #00C1DE;");
   return finalSeedPhrase;
 }
 

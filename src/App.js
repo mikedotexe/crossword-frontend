@@ -61,7 +61,6 @@ const App = ({ nearConfig, data }) => {
   const onCrosswordComplete = useCallback(
     async (completeCount) => {
         if (completeCount !== false) {
-          console.log('aloha completeCount', completeCount);
           let gridData = createGridData(data).gridData;
           loadGuesses(gridData, 'guesses');
           await checkSolution(gridData);
@@ -80,20 +79,7 @@ const App = ({ nearConfig, data }) => {
   } else {
     return (
       <div id="page">
-        <h1>Thank you @jaredreisinger/react-crossword example app!</h1>
-
-        <p>
-          This is a demo app that makes use of the @jaredreisinger/react-crossword component with a little modifications.
-        </p>
-        <p>This does not communicate with the blockchain at this point, the data lives in either <code>src/data.js</code> or <code>src/data-realish.js</code></p>
-        <p>What needs to happen:</p>
-        <ol>
-          <li>When page loads, makes call to a smart contract (similar to Guest Book)</li>
-          <li>Also when page loads, use <code>near-api-js</code> and <code>near-seed-phrase</code> to generate a random seed phrase and key pair. This will be used if the user is the first person to solve the crossword.</li>
-          <li>For now assume there's only one crossword puzzle, call <code>some_method</code> (yet implemented) on smart contract that gets the clues and the "solution public key"</li>
-          <li>This frontend will display "… CHECK IT" (see below) whenever the user has typed a final character into the puzzle and the seed phrase should be parsed and checked against the "solution public key"</li>
-          <li>If the person sends a transaction to the method <code>submit_solution</code> and the return value indicates that they're the winner, change the screen to say "yay you have won, please enter in the account you wish to claim the reward and your memo message."</li>
-        </ol>
+        <h1>NEAR Crossword Puzzle intro</h1>
 
         <div id="crossword-wrapper">
           <Crossword
@@ -102,6 +88,7 @@ const App = ({ nearConfig, data }) => {
             onCrosswordComplete={onCrosswordComplete}
           />
         </div>
+        <footer><p>Thank you <a href="https://github.com/JaredReisinger/react-crossword" target="_blank" rel="noreferrer">@jaredreisinger/react-crossword</a>!</p></footer>
       </div>
     );
   }
