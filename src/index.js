@@ -19,11 +19,19 @@ async function initCrossword() {
   // Get crossword puzzle using view method
   const chainData = await viewMethodOnContract(nearConfig, 'get_unsolved_puzzles');
 
-  // Save the crossword solution's public key
-  // Again, assuming there's only one crossword puzzle.
-  localStorage.setItem('crosswordSolutionPublicKey', chainData[0]['solution_public_key']);
+  let data;
 
-  const data = mungeBlockchainCrossword(chainData);
+  // There may not be any crossword puzzles to solve, check this.
+  if (chainData.length) {
+    // Save the crossword solution's public key
+    // Again, assuming there's only one crossword puzzle.
+    localStorage.setItem('crosswordSolutionPublicKey', chainData[0]['solution_public_key']);
+
+    data = mungeBlockchainCrossword(chainData);
+  } else {
+    console.log("Oof, there's no crossword to play right now, friend.");
+  }
+
 
   return { nearConfig, data };
 }
