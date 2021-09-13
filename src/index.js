@@ -6,7 +6,7 @@ import { viewMethodOnContract } from './utils';
 import { data } from './hardcoded-data';
 
 async function initCrossword() {
-  const nearConfig = getConfig(process.env.NODE_ENV || 'testnet');
+  const nearConfig = getConfig(process.env.NEAR_ENV || 'testnet');
   const solutionHash = await viewMethodOnContract(nearConfig, 'get_solution');
   return { data, solutionHash };
 }
